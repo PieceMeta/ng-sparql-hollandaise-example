@@ -1,0 +1,10 @@
+h1 Results
+
+table.table.table-striped
+    tr
+        th(ng-repeat="key in results.vars") {{ key }}
+    tr(ng-repeat="val in results.bindings")
+        td(ng-repeat="key in results.vars") {{ val[key].value }}
+
+h3 Generated query
+code {{ query }}

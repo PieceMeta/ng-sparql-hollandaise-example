@@ -1,0 +1,16 @@
+doctype html
+html(lang='en-US', ng-app='ngsparql.example.app')
+    head
+      base(href='/')
+      title ngSPARQL Example App
+      meta(charset='utf-8')
+      script(type='text/javascript', src='/bower_components/babel-polyfill/browser-polyfill.js')
+      script(type='text/javascript', src='/bower_components/sparql-hollandaise/dist/sparql-hollandaise.js')
+      script(type='text/javascript', src='/bower_components/angular/angular.js')
+      script(type='text/javascript', src='/bower_components/angular-route/angular-route.js')
+      script(type='text/javascript', src='/js/config.js')
+      script(type='text/javascript', src='/js/ng-app.js')
+      link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+      link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap-theme.css')
+    body
+      .container-fluid(ng-view='')

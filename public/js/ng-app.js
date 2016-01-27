@@ -18,24 +18,28 @@
 
             //
             //
-            // construct a query
+            // construct a graph pattern from triples
 
-            var query = queryService.createQuery()
-                .select('*')
-                .where([
+            var pattern = new SPH.SparqlGraphPattern([
                     '?piece a pbao:Piece',
                     '?piece rdfs:label ?piece_label',
                     '?piece dct:created ?date'
-                ])
+                ]);
+
+            //
+            //
+            // add a filter to the pattern
+
+            pattern.addElement(new SPH.SparqlFilter('langMatches( lang(?piece_label), "de" )'));
+
+            var group = new SPH.SparqlGroupGraphPattern(pattern);
+
+            var query = queryService.createQuery()
+                .select('*')
+                .where(group)
                 .order('?piece_label')
                 .limit(10)
                 .offset(5);
-
-            //
-            //
-            // add a filter to the where clause
-
-            query.where(new SPH.SparqlFilter('langMatches( lang(?piece_label), "de" )'));
 
             // get the query string
             $scope.query = query.toString();

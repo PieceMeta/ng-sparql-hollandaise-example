@@ -6,7 +6,7 @@
         .factory('queryService', function () {
             return {
                 createQuery: function () {
-                    return new SPH.SparqlQuery(SPH_ENDPOINT).prefix(SPH_DEFAULT_PREFIXES);
+                    return new SPH.Query(SPH_ENDPOINT).prefix(SPH_DEFAULT_PREFIXES);
                 }
             }
         });
@@ -20,7 +20,7 @@
             //
             // construct a graph pattern from triples
 
-            var pattern = new SPH.SparqlGraphPattern([
+            var pattern = new SPH.GraphPattern([
                     '?piece a pbao:Piece',
                     '?piece rdfs:label ?piece_label',
                     '?piece dct:created ?date'
@@ -30,9 +30,9 @@
             //
             // add a filter to the pattern
 
-            pattern.addElement(new SPH.SparqlFilter('langMatches( lang(?piece_label), "de" )'));
+            pattern.addElement(new SPH.Filter('langMatches( lang(?piece_label), "de" )'));
 
-            var group = new SPH.SparqlGroupGraphPattern(pattern);
+            var group = new SPH.GroupGraphPattern(pattern);
 
             var query = queryService.createQuery()
                 .select('*')

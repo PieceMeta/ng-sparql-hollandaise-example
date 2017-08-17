@@ -1,6 +1,6 @@
 {
   "name": "ng-sparql-hollandaise-example",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authors": [
     "Anton Koch <piecemeta@gmail.com>"
   ],
@@ -13,7 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "sparql-querybuilder": "git://github.com/PieceMeta/node-sparql-hollandaise.git",
+    "sparql-hollandaise": "git://github.com/PieceMeta/node-sparql-hollandaise.git#0.2.3",
     "angular": "~1.4.8",
     "angular-route": "~1.4.8",
     "bootstrap": "~3.3.6"

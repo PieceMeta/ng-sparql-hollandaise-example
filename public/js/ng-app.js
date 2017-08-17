@@ -1,4 +1,4 @@
-/* global angular,SPH,SPH_ENDPOINT,SPH_DEFAULT_PREFIXES */
+/* global angular,SPH,SPH_ENDPOINT,SPH_DEFAULT_PREFIXES,SPH_ENDPOINT_AUTH,SPH_ENDPOINT_METHOD */
 (function () {
     'use strict';
 
@@ -6,7 +6,7 @@
         .factory('queryService', function () {
             return {
                 createQuery: function () {
-                    return new SPH.Query(SPH_ENDPOINT).prefix(SPH_DEFAULT_PREFIXES);
+                    return new SPH.Query(SPH_ENDPOINT, SPH_ENDPOINT_AUTH, SPH_ENDPOINT_METHOD).prefix(SPH_DEFAULT_PREFIXES);
                 }
             }
         });
